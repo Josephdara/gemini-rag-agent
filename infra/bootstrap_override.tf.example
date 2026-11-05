@@ -1,0 +1,5 @@
+# Local state for the bootstrap apply only. Delete bootstrap_override.tf once the state bucket exists, then run
+# terraform init -migrate-state -backend-config="bucket=<project_id>-tfstate".
+terraform {
+  backend "local" {}
+}

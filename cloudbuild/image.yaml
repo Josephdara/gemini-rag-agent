@@ -1,0 +1,12 @@
+# Builds and pushes the agent image. Started by hand with gcloud builds submit; see the README.
+steps:
+  - id: build
+    name: gcr.io/cloud-builders/docker
+    args: ["build", "-f", "app/Dockerfile", "-t", "${_IMAGE}:${_TAG}", "."]
+
+images: ["${_IMAGE}:${_TAG}"]
+
+timeout: 1200s
+
+options:
+  logging: CLOUD_LOGGING_ONLY

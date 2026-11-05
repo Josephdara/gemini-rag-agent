@@ -1,0 +1,11 @@
+# Uploaded by gcloud builds submit. Only what the image build needs.
+*
+!pyproject.toml
+!uv.lock
+!app/
+!app/**
+!cloudbuild/
+!cloudbuild/**
+app/tests/
+**/__pycache__/
+**/.adk/

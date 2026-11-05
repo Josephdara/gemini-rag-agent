@@ -1,0 +1,17 @@
+{
+  "org_id": "123456789012",
+  "billing_account": "000000-000000-000000",
+  "project_id": "my-rag-agent",
+  "quota_project": null,
+  "operator_member": "user:you@example.com",
+  "app_users": [],
+  "budget_amount": 25,
+  "budget_alert_email": "alerts@example.com",
+  "chat_model": "gemini-3.8-flash",
+  "embedding_model": "gemini-embedding-001",
+  "judge_model": "gemini-3.8-flash",
+  "gemini_location": "us",
+  "embedding_location": "us-east4",
+  "image": null,
+  "github": null
+}

@@ -1,0 +1,30 @@
+[project]
+name = "gemini-rag-agent"
+version = "0.1.0"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "google-adk==2.12.0",
+    "google-auth==2.62.0",
+    "google-cloud-bigquery==3.46.2",
+    "google-genai==2.31.0",
+    "requests==2.34.2",
+]
+
+[dependency-groups]
+dev = ["pytest==9.1.1"]
+
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+# Three folders, one installable project, so ingestion and evaluation reuse the agent's retrieval code.
+[tool.setuptools]
+packages = ["rag_agent", "rag_ingest", "rag_eval"]
+
+[tool.setuptools.package-dir]
+rag_agent = "app/rag_agent"
+rag_ingest = "ingest/rag_ingest"
+rag_eval = "eval/rag_eval"
+
+[tool.pytest.ini_options]
+testpaths = ["app/tests", "ingest/tests", "eval/tests"]

@@ -1,0 +1,36 @@
+[
+  {"name": "run_id", "type": "STRING", "mode": "REQUIRED", "description": "Unique ID of the evaluation run"},
+  {"name": "run_time", "type": "TIMESTAMP", "mode": "REQUIRED", "description": "Time the run started"},
+  {"name": "dataset_version", "type": "STRING", "mode": "REQUIRED"},
+  {"name": "dataset_sha256", "type": "STRING", "mode": "REQUIRED", "description": "SHA-256 of the dataset file as read"},
+  {"name": "dataset_item_count", "type": "INTEGER", "mode": "REQUIRED", "description": "Items in the dataset file"},
+  {"name": "item_count", "type": "INTEGER", "mode": "REQUIRED", "description": "Items evaluated in this run"},
+  {"name": "item_limit", "type": "INTEGER", "mode": "NULLABLE", "description": "Item limit for a partial run, which cannot pass"},
+  {"name": "item_errors", "type": "INTEGER", "mode": "REQUIRED", "description": "Items whose agent call or scoring failed"},
+  {"name": "chat_model", "type": "STRING", "mode": "REQUIRED"},
+  {"name": "chat_location", "type": "STRING", "mode": "REQUIRED"},
+  {"name": "embedding_model", "type": "STRING", "mode": "REQUIRED"},
+  {"name": "top_k", "type": "INTEGER", "mode": "REQUIRED", "description": "Chunks retrieved per search"},
+  {"name": "instruction_sha256", "type": "STRING", "mode": "REQUIRED", "description": "SHA-256 of the agent instruction"},
+  {"name": "harness_version", "type": "STRING", "mode": "REQUIRED"},
+  {"name": "evaluation_location", "type": "STRING", "mode": "REQUIRED", "description": "Location of the evaluation service"},
+  {"name": "judge_model", "type": "STRING", "mode": "REQUIRED"},
+  {"name": "judge_location", "type": "STRING", "mode": "REQUIRED"},
+  {"name": "rubric_version", "type": "STRING", "mode": "REQUIRED"},
+  {"name": "rubric_sha256", "type": "STRING", "mode": "REQUIRED"},
+  {
+    "name": "metrics",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+      {"name": "name", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "definition", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "value", "type": "FLOAT", "mode": "REQUIRED"},
+      {"name": "threshold", "type": "FLOAT", "mode": "REQUIRED"},
+      {"name": "comparison", "type": "STRING", "mode": "REQUIRED", "description": "min or max"},
+      {"name": "passed", "type": "BOOLEAN", "mode": "REQUIRED"}
+    ]
+  },
+  {"name": "passed", "type": "BOOLEAN", "mode": "REQUIRED", "description": "True when every metric passed its threshold"},
+  {"name": "report_path", "type": "STRING", "mode": "REQUIRED", "description": "Local per-item report"}
+]

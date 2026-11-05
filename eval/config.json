@@ -1,0 +1,37 @@
+{
+  "dataset_version": "v1",
+  "rubric": "rubrics/groundedness-v1.txt",
+  "rubric_version": "groundedness-v1",
+  "evaluation_location": "us-east4",
+  "judge": {
+    "model": "gemini-3.8-flash",
+    "location": "global"
+  },
+  "thresholds": {
+    "hit_rate": {
+      "comparison": "min",
+      "value": 0.9,
+      "definition": "Share of answerable questions where a chunk from an expected source was retrieved"
+    },
+    "mrr": {
+      "comparison": "min",
+      "value": 0.7,
+      "definition": "Mean reciprocal rank of the first chunk from an expected source, over answerable questions"
+    },
+    "citation_rate": {
+      "comparison": "min",
+      "value": 0.9,
+      "definition": "Share of answers whose citations all name retrieved chunks, with at least one when answerable"
+    },
+    "judge_mean": {
+      "comparison": "min",
+      "value": 4.0,
+      "definition": "Mean 1 to 5 groundedness and correctness score from the judge model"
+    },
+    "latency_p95_seconds": {
+      "comparison": "max",
+      "value": 30.0,
+      "definition": "95th percentile end-to-end agent turn latency, nearest rank"
+    }
+  }
+}
